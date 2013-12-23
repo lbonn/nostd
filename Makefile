@@ -1,6 +1,4 @@
-include config.mk
-
-CFLAGS+=-I./include
+include nostd.mk
 
 .PHONY: all clean libs test_bin test
 

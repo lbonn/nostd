@@ -1,10 +1,5 @@
-include ../config.mk
-
-CFLAGS+=-I../include
-#LDFLAGS+=-L../lib -lnostdmin -lnostdio
-NOSTDLIB=../lib
-LIBMIN=$(NOSTDLIB)/libnostdmin.a
-LIBIO=$(NOSTDLIB)/libnostdio.a
+include ../nostd.mk
+TOP=..
 
 .PHONY: all clean test
 
