@@ -1,5 +1,6 @@
-#include <def.h>
-#include <io/base.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 static size_t strlen(const char *str)
 {

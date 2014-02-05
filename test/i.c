@@ -1,5 +1,6 @@
-#include <def.h>
-#include <io/base.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 static int stdout_fd = 1;
 

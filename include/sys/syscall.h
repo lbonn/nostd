@@ -1,15 +1,19 @@
-int syscall(int number, ...);
+/* syscall.h
+ * syscall function declaration and syscall ids
+ */
 
-#define __NR_read 0
-#define __NR_write 1 
-#define __NR_open 2 
-#define __NR_close 3 
-#define __NR_stat 4
-#define __NR_fstat 5
-#define __NR_lstat 6
-#define __NR_poll 7
-#define __NR_lseek 8
-#define __NR_mmap 9
-#define __NR_mprotect 10
-#define __NR_munmap 11
-#define __NR_exit 60
+static const int SYS_read = 0;
+static const int SYS_write = 1;
+static const int SYS_open = 2;
+static const int SYS_close = 3;
+static const int SYS_stat = 4;
+static const int SYS_fstat = 5;
+static const int SYS_lstat = 6;
+static const int SYS_poll = 7;
+static const int SYS_lseek = 8;
+static const int SYS_mmap = 9;
+static const int SYS_mprotect = 10;
+static const int SYS_munmap = 11;
+static const int SYS_exit = 60;
+
+int syscall(int number, ...);

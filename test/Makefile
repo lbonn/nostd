@@ -5,9 +5,9 @@ TOP=..
 
 all: start_test io_test i
 
-start_test: start_test.o $(LIBMIN)
-io_test: io_test.o $(LIBMIN) $(LIBIO)
-i: i.o $(LIBMIN) $(LIBIO)
+start_test: start_test.o
+io_test: io_test.o
+i: i.o
 
 test:
 	@sh run_test.sh

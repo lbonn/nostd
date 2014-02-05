@@ -3,11 +3,16 @@ include nostd.mk
 .PHONY: all clean libs test_bin test
 
 all: libs test_bin
-libs: lib/libnostdmin.a lib/libnostdio.a
-test_bin: lib/libnostdmin.a lib/libnostdio.a
+libs: lib/libnostdmin.a lib/libnostd.a
+test_bin: libs
 
-lib/libnostdmin.a: src/sys/asm/start.o src/sys/asm/syscall.o src/sys/exit.o
-lib/libnostdio.a: src/io/base.o src/sys/asm/syscall.o
+UNAME_S := $(shell sh -c 'uname -s')
+UNAME_M := $(shell sh -c 'uname -m')
+ARCH ?= $(UNAME_S)-$(UNAME_M)
+ARCH_SRC := src/arch/$(ARCH)
+
+lib/libnostdmin.a: $(ARCH_SRC)/start.o $(ARCH_SRC)/syscall.o src/sys/exit.o
+lib/libnostd.a: $(ARCH_SRC)/start.o $(ARCH_SRC)/syscall.o src/sys/exit.o src/io/base.o
 
 test_bin: libs
 	@cd test; make
@@ -16,8 +21,8 @@ test: test_bin
 	@cd test; make test
 
 clean: 
-	-$(RM) lib/libnostdmin.a lib/libnostdio.a
-	-$(RM) src/sys/asm/{syscall.o,start.o}
+	-$(RM) lib/libnostdmin.a lib/libnostd.a
+	-$(RM) $(ARCH_SRC)/{syscall.o,start.o}
 	-$(RM) src/sys/exit.o
 	-$(RM) src/io/base.o
 	@cd test; make clean
