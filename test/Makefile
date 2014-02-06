@@ -1,11 +1,12 @@
 include ../nostd.mk
-TOP=..
+NOSTD_DIR=..
 
 .PHONY: all clean test
 
-all: start_test io_test i
+all: start_test hello io_test i
 
 start_test: start_test.o
+hello: hello.o
 io_test: io_test.o
 i: i.o
 
@@ -14,5 +15,6 @@ test:
 
 clean:
 	-$(RM) start_test.o start_test
+	-$(RM) hello.o hello
 	-$(RM) io_test.o io_test
 	-$(RM) i.o i

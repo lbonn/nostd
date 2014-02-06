@@ -2,18 +2,25 @@
  * syscall function declaration and syscall ids
  */
 
-static const int SYS_read = 0;
-static const int SYS_write = 1;
-static const int SYS_open = 2;
-static const int SYS_close = 3;
-static const int SYS_stat = 4;
-static const int SYS_fstat = 5;
-static const int SYS_lstat = 6;
-static const int SYS_poll = 7;
-static const int SYS_lseek = 8;
-static const int SYS_mmap = 9;
-static const int SYS_mprotect = 10;
-static const int SYS_munmap = 11;
-static const int SYS_exit = 60;
+#define SYS_read 0
+#define SYS_write 1
+#define SYS_open 2
+#define SYS_close 3
+#define SYS_stat 4
+#define SYS_fstat 5
+#define SYS_lstat 6
+#define SYS_poll 7
+#define SYS_lseek 8
+#define SYS_mmap 9
+#define SYS_mprotect 10
+#define SYS_munmap 11
+#define SYS_exit 60
+
+unsigned long _syscall0(int number);
+unsigned long _syscall1(int number, unsigned long arg0);
+unsigned long _syscall2(int number, unsigned long arg0,
+        unsigned long arg1);
+unsigned long _syscall3(int number, unsigned long arg0,
+        unsigned long arg1, unsigned long arg2);
 
 int syscall(int number, ...);

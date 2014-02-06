@@ -7,4 +7,5 @@ _start:
     movq %rsp, %rsi /* argv */
     call main
     movq %rax, %rdi
-    call exit
+    movq $60, %rax
+    syscall
