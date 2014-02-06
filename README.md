@@ -30,7 +30,7 @@ No libc and really tiny executables (thanks to lto)!
     $ 6762 hello
 
 
-*Beware*: highly unportable and incomplete (you'll have to do with ```open```,
+**Beware**: highly unportable and incomplete (you'll have to do with ```open```,
 ```read```, ```write```, ```exit``` and ```close``` for now)
 
 
@@ -39,9 +39,9 @@ Project
 
 The goal is to generate very compact statically linked executables with extensive inlining when compiled with ```-Os -flto```.
 
-The omission of libc's high level functions (```stdio.h``` for example) is intentional. If some of its feature are needed, they must be coded by the user from POSIX.
+The omission of libc's high level functions (```stdio.h``` for example) is intentional. If some of its features are needed, code them from POSIX!
 
-I'll add more useful system calls later!
+I'll add more useful system calls later.
 
 
 Issues
@@ -55,5 +55,6 @@ Useful docs
 -----------
 
 [https://www.kernel.org/doc/man-pages](https://www.kernel.org/doc/man-pages)
+
 [http://man7.org/linux/man-pages/man2/syscall.2.html#NOTES](http://man7.org/linux/man-pages/man2/syscall.2.html#NOTES)
 
