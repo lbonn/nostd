@@ -1,6 +1,9 @@
 include ../nostd.mk
 NOSTD_DIR=..
 
+CFLAGS+=-Os -Wall -Wextra
+LDFLAGS+=-Os -s
+
 .PHONY: all clean test
 
 all: start_test hello io_test i syscall

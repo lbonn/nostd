@@ -1,5 +1,8 @@
 include nostd.mk
 
+CFLAGS+=-Os -Wall -Wextra
+LDFLAGS+=-Os -s
+
 .PHONY: all clean libs test_bin test
 
 all: libs test_bin
