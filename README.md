@@ -25,9 +25,9 @@ No libc and really tiny executables (thanks to lto)!
       944 hello
     $ ../tools/stripper
       624 hello
-    $ gcc -o hello hello.c
+    $ gcc -Os -s -o hello hello.c
     $ wc -c hello
-    $ 6762 hello
+    $ 4400 hello
 
 
 **Beware**: highly unportable and incomplete (you'll have to do with ```open```,
