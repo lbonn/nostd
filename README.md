@@ -23,7 +23,8 @@ No libc and really tiny executables (thanks to lto)!
       hello world
     $ wc -c hello
       944 hello
-    $ ../tools/stripper
+    $ ../tools/stripper hello
+    $ wc -c hello
       624 hello
     $ gcc -Os -s -o hello hello.c
     $ wc -c hello
