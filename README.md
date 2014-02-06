@@ -1,7 +1,7 @@
 nostd
 =====
 
-Program in C with bare system calls on Linux x86_64.
+Program in C with bare system calls on Linux x86\_64.
 
 No libc and really tiny executables (thanks to lto)!
 
@@ -28,7 +28,7 @@ No libc and really tiny executables (thanks to lto)!
     $ gcc -o hello hello.c
     $ wc -c hello
     $ 6762 hello
-      
+
 
 *Beware*: highly unportable and incomplete (you'll have to do with ```open```,
 ```read```, ```write```, ```exit``` and ```close``` for now)
