@@ -7,13 +7,12 @@
 static int arg_count(int number)
 {
     switch (number) {
-        case SYS_exit:
+        case SYS_exit: case SYS_close:
             return 1;
         case SYS_open: case SYS_read: case SYS_write:
            return 3;
         default:
             return 0;
-      
     }
 }
 
