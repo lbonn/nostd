@@ -16,11 +16,4 @@
 #define SYS_munmap 11
 #define SYS_exit 60
 
-unsigned long _syscall0(int number);
-unsigned long _syscall1(int number, unsigned long arg0);
-unsigned long _syscall2(int number, unsigned long arg0,
-        unsigned long arg1);
-unsigned long _syscall3(int number, unsigned long arg0,
-        unsigned long arg1, unsigned long arg2);
-
 int syscall(int number, ...);

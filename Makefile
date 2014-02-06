@@ -4,7 +4,6 @@ include nostd.mk
 
 all: libs test_bin
 libs: lib/libnostdmin.a lib/libnostd.a
-test_bin: libs
 
 UNAME_S := $(shell sh -c 'uname -s')
 UNAME_M := $(shell sh -c 'uname -m')
