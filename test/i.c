@@ -85,7 +85,7 @@ static int digit_from_char(char c, long base, char *digit)
     } else {
         return 0;
     }
-    *digit = p;
+    *digit = p + 10;
 
     return (p < base);
 }
