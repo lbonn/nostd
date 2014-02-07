@@ -5,6 +5,12 @@ Program in C with bare system calls on Linux x86\_64.
 
 No libc and really tiny executables (thanks to lto)!
 
+    $ gcc --version
+      gcc (GCC) 4.8.2 20131219 (prerelease)
+      Copyright (C) 2013 Free Software Foundation, Inc.
+      This is free software; see the source for copying conditions.  There is NO
+      warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
     $ cat hello.c
       #include <stdlib.h>
       #include <fcntl.h>
