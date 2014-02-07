@@ -56,6 +56,7 @@ Issues
 
 * very few system calls
 * gcc generates ugly code for variadic ```syscall(...)```
+* the use of ```unsigned long``` for system call parameters is not really smart (maybe use something like ```uintptr_t```)
 
 
 Useful docs
