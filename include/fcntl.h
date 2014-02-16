@@ -1,3 +1,6 @@
+#ifndef _FNCTL_H
+#define _FNCTL_H
+
 /* fcntl.h
  */
 
@@ -22,3 +25,5 @@ static const int O_NOFOLLOW	= 0400000;
 static const int O_NOATIME = 01000000;
 
 int open(const char *pathname, int flags, umode_t mode);
+
+#endif

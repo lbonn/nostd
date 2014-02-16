@@ -1,3 +1,5 @@
+#ifndef _SYS_SYSCALL_H
+#define _SYS_SYSCALL_H
 /* syscall.h
  * syscall function declaration and syscall ids
  */
@@ -17,3 +19,4 @@
 #define SYS_exit 60
 
 int syscall(int number, ...);
+#endif
