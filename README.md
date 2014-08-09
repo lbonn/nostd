@@ -51,12 +51,14 @@ The omission of libc's high level functions (```stdio.h``` for example) is inten
 I'll add more useful system calls later.
 
 
-Issues
-------
+Issues and notes
+----------------
 
 * very few system calls
 * gcc generates ugly code for variadic ```syscall(...)```
 * the use of ```unsigned long``` for system call parameters is not really smart (maybe use something like ```uintptr_t```)
+* gcc 4.9 needs AR=gcc-ar to compile static libraries with lto
+* the test case ```i.c``` is now broken on gcc 4.9.1 with lto (works fine on clang)
 
 
 Useful docs
