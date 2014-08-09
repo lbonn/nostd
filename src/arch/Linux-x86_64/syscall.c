@@ -8,7 +8,7 @@ unsigned long _asm_syscall0(int number)
             "movq %%rax, %0\n\t"
             :"=r"(ret)
             :"r"((unsigned long)number)
-            :"%rax"
+            :"%rax","%rcx","%r11"
        );
 
     return ret;
@@ -25,7 +25,7 @@ unsigned long _asm_syscall1(int number, unsigned long arg0)
             "movq %%rax, %0\n\t"
             :"=r"(ret)
             :"r"((unsigned long)number),"r"(arg0)
-            :"%rax","%rdi"
+            :"%rax","%rdi","%rcx","%r11"
        );
 
     return ret;
@@ -44,7 +44,7 @@ unsigned long _asm_syscall2(int number, unsigned long arg0,
             "movq %%rax, %0\n\t"
             :"=r"(ret)
             :"r"((unsigned long)number),"r"(arg0),"r"(arg1)
-            :"%rax","%rdi","%rsi"
+            :"%rax","%rdi","%rsi","%rcx","%r11"
        );
 
     return ret;
@@ -64,7 +64,7 @@ unsigned long _asm_syscall3(int number, unsigned long arg0,
             "movq %%rax, %0\n\t"
             :"=r"(ret)
             :"r"((unsigned long)number),"r"(arg0),"r"(arg1),"r"(arg2)
-            :"%rax","%rdi","%rsi","%rdx"
+            :"%rax","%rdi","%rsi","%rdx","%rcx","%r11"
        );
 
     return ret;
@@ -86,7 +86,7 @@ unsigned long _asm_syscall4(int number, unsigned long arg0,
             :"=r"(ret)
             :"r"((unsigned long)number),"r"(arg0),"r"(arg1),"r"(arg2),
             "r"(arg3)
-            :"%rax","%rdi","%rsi","%rdx","%r10"
+            :"%rax","%rdi","%rsi","%rdx","%r10","%rcx","%r11"
        );
 
     return ret;
@@ -110,7 +110,7 @@ unsigned long _asm_syscall5(int number, unsigned long arg0,
             :"=r"(ret)
             :"r"((unsigned long)number),"r"(arg0),"r"(arg1),"r"(arg2),
             "r"(arg3),"r"(arg4)
-            :"%rax","%rdi","%rsi","%rdx","%r10","%r8"
+            :"%rax","%rdi","%rsi","%rdx","%r10","%r8","%rcx","%r11"
        );
 
     return ret;
@@ -123,6 +123,7 @@ unsigned long _asm_syscall6(int number, unsigned long arg0,
     unsigned long ret;
 
     asm volatile (
+            "pushq %r11\n\t"
             "movq %1, %%rax\n\t"
             "movq %2, %%rdi\n\t"
             "movq %3, %%rsi\n\t"
@@ -131,11 +132,12 @@ unsigned long _asm_syscall6(int number, unsigned long arg0,
             "movq %6, %%r8\n\t"
             "movq %7, %%r9\n\t"
             "syscall\n\t"
+            "popq %r11\n\t"
             "movq %%rax, %0\n\t"
             :"=r"(ret)
             :"r"((unsigned long)number),"r"(arg0),"r"(arg1),"r"(arg2),
             "r"(arg3),"r"(arg4),"r"(arg5)
-            :"%rax","%rdi","%rsi","%rdx","%r10","%r8","%r9"
+            :"%rax","%rdi","%rsi","%rdx","%r10","%r8","%r9","%rcx"
        );
 
     return ret;
