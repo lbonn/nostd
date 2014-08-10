@@ -4,7 +4,7 @@
 
 /* returns the number of argument taken by a particular
  * syscall */
-static int arg_count(int number)
+static int arg_count(long number)
 {
     switch (number) {
         case SYS_exit: case SYS_close:
@@ -16,10 +16,10 @@ static int arg_count(int number)
     }
 }
 
-int syscall(int number, ...)
+long syscall(long number, ...)
 {
     const int n_args = arg_count(number);
-    unsigned long ret;
+    long ret;
 
     va_list args;
     va_start(args, number);
@@ -29,25 +29,25 @@ int syscall(int number, ...)
             ret = _asm_syscall0(number);
             break;
         case 1:
-            ret = _asm_syscall1(number, va_arg(args, unsigned long));
+            ret = _asm_syscall1(number, va_arg(args, uintptr_t));
             break;
         case 2:
-            ret = _asm_syscall2(number, va_arg(args, unsigned long),
-                    va_arg(args, unsigned long));
+            ret = _asm_syscall2(number, va_arg(args, uintptr_t),
+                    va_arg(args, uintptr_t));
             break;
         case 3:
-            ret = _asm_syscall3(number, va_arg(args, unsigned long),
-                    va_arg(args, unsigned long), va_arg(args, unsigned long));
+            ret = _asm_syscall3(number, va_arg(args, uintptr_t),
+                    va_arg(args, uintptr_t), va_arg(args, uintptr_t));
             break;
         case 4:
-            ret = _asm_syscall4(number, va_arg(args, unsigned long),
-                    va_arg(args, unsigned long), va_arg(args, unsigned long),
-                    va_arg(args, unsigned long));
+            ret = _asm_syscall4(number, va_arg(args, uintptr_t),
+                    va_arg(args, uintptr_t), va_arg(args, uintptr_t),
+                    va_arg(args, uintptr_t));
             break;
         case 5:
-            ret = _asm_syscall5(number, va_arg(args, unsigned long),
-                    va_arg(args, unsigned long), va_arg(args, unsigned long),
-                    va_arg(args, unsigned long), va_arg(args, unsigned long));
+            ret = _asm_syscall5(number, va_arg(args, uintptr_t),
+                    va_arg(args, uintptr_t), va_arg(args, uintptr_t),
+                    va_arg(args, uintptr_t), va_arg(args, uintptr_t));
             break;
     }
 

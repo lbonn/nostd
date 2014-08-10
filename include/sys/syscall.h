@@ -18,5 +18,5 @@
 #define SYS_munmap 11
 #define SYS_exit 60
 
-int syscall(int number, ...);
+long syscall(long number, ...);
 #endif
