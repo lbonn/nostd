@@ -123,7 +123,7 @@ unsigned long _asm_syscall6(int number, unsigned long arg0,
     unsigned long ret;
 
     asm volatile (
-            "pushq %r11\n\t"
+            "pushq %%r11\n\t"
             "movq %1, %%rax\n\t"
             "movq %2, %%rdi\n\t"
             "movq %3, %%rsi\n\t"
@@ -132,7 +132,7 @@ unsigned long _asm_syscall6(int number, unsigned long arg0,
             "movq %6, %%r8\n\t"
             "movq %7, %%r9\n\t"
             "syscall\n\t"
-            "popq %r11\n\t"
+            "popq %%r11\n\t"
             "movq %%rax, %0\n\t"
             :"=r"(ret)
             :"r"((unsigned long)number),"r"(arg0),"r"(arg1),"r"(arg2),
