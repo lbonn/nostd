@@ -57,7 +57,6 @@ Issues and notes
 * very few system calls
 * gcc generates ugly code for variadic ```syscall(...)```
 * gcc 4.9 needs AR=gcc-ar to compile static libraries with lto
-* the test case ```i.c``` is now broken on gcc 4.9.1 with lto (works fine on clang)
 
 
 Useful docs

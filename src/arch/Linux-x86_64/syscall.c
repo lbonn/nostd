@@ -10,7 +10,7 @@ uintptr_t _asm_syscall0(int number)
             "movq %%rax, %0\n\t"
             :"=r"(ret)
             :"r"((uintptr_t)number)
-            :"%rax","%rcx","%r11"
+            :"%rax","%rcx","%r11","memory"
        );
 
     return ret;
@@ -27,7 +27,7 @@ uintptr_t _asm_syscall1(int number, uintptr_t arg0)
             "movq %%rax, %0\n\t"
             :"=r"(ret)
             :"r"((uintptr_t)number),"r"(arg0)
-            :"%rax","%rdi","%rcx","%r11"
+            :"%rax","%rdi","%rcx","%r11","memory"
        );
 
     return ret;
@@ -46,7 +46,7 @@ uintptr_t _asm_syscall2(int number, uintptr_t arg0,
             "movq %%rax, %0\n\t"
             :"=r"(ret)
             :"r"((uintptr_t)number),"r"(arg0),"r"(arg1)
-            :"%rax","%rdi","%rsi","%rcx","%r11"
+            :"%rax","%rdi","%rsi","%rcx","%r11","memory"
        );
 
     return ret;
@@ -66,7 +66,7 @@ uintptr_t _asm_syscall3(int number, uintptr_t arg0,
             "movq %%rax, %0\n\t"
             :"=r"(ret)
             :"r"((uintptr_t)number),"r"(arg0),"r"(arg1),"r"(arg2)
-            :"%rax","%rdi","%rsi","%rdx","%rcx","%r11"
+            :"%rax","%rdi","%rsi","%rdx","%rcx","%r11","memory"
        );
 
     return ret;
@@ -88,7 +88,7 @@ uintptr_t _asm_syscall4(int number, uintptr_t arg0,
             :"=r"(ret)
             :"r"((uintptr_t)number),"r"(arg0),"r"(arg1),"r"(arg2),
             "r"(arg3)
-            :"%rax","%rdi","%rsi","%rdx","%r10","%rcx","%r11"
+            :"%rax","%rdi","%rsi","%rdx","%r10","%rcx","%r11","memory"
        );
 
     return ret;
@@ -112,7 +112,7 @@ uintptr_t _asm_syscall5(int number, uintptr_t arg0,
             :"=r"(ret)
             :"r"((uintptr_t)number),"r"(arg0),"r"(arg1),"r"(arg2),
             "r"(arg3),"r"(arg4)
-            :"%rax","%rdi","%rsi","%rdx","%r10","%r8","%rcx","%r11"
+            :"%rax","%rdi","%rsi","%rdx","%r10","%r8","%rcx","%r11","memory"
        );
 
     return ret;
@@ -139,7 +139,7 @@ uintptr_t _asm_syscall6(int number, uintptr_t arg0,
             :"=r"(ret)
             :"r"((uintptr_t)number),"r"(arg0),"r"(arg1),"r"(arg2),
             "r"(arg3),"r"(arg4),"r"(arg5)
-            :"%rax","%rdi","%rsi","%rdx","%r10","%r8","%r9","%rcx"
+            :"%rax","%rdi","%rsi","%rdx","%r10","%r8","%r9","%rcx","memory"
        );
 
     return ret;
