@@ -35,7 +35,7 @@ static unsigned char digit_char(unsigned char c)
 
 static void print_ull(unsigned long long l, unsigned long base)
 {
-    unsigned char buf[sizeof(unsigned long long)*2+1];
+    unsigned char buf[sizeof(unsigned long long)*8+1];
     int k = 0;
 
     do {
