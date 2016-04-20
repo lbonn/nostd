@@ -2,18 +2,18 @@
 
 # strip all symbols and useless elf sections
 
-if [[ $# < 1 ]]; then
+if [ $# -lt 1 ]; then
     echo "usage: $0 elf_file [c_compiler]" >&2
     exit 1
 fi;
 
-USELESS_SECTIONS="-R .eh_frame "
+USELESS_SECTIONS="-R .eh_frame"
 case "$2" in
 "clang")
-    USELESS_SECTIONS+="-R .note.gnu.gold-version"
+    USELESS_SECTIONS="${USELESS_SECTIONS} -R .note.gnu.gold-version"
     ;;
 "cc" | "gcc" | *)
-    USELESS_SECTIONS+="-R .comment -R .note.gnu.build-id"
+    USELESS_SECTIONS="${USELESS_SECTIONS} -R .comment -R .note.gnu.build-id"
     ;;
 esac
 
